@@ -2,14 +2,14 @@
 
 import sys
 import os
+import argparse
 
 def main():
-    args = sys.argv
-    if len(args) < 2:
-        print("Usage: convert_guid {GUID}")
-        return -1
+    parser = argparse.ArgumentParser(description='GUID to MSI compressed GUID converter')
+    parser.add_argument('GUID')
+    args = parser.parse_args()
     
-    guid1 = sys.argv[1]
+    guid1 = args.GUID
 
     if len(guid1) != 38:
         print("Invalid GUID: '{}'".format(guid1))
